@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "karttaluento",
-    "slug": "karttaluento",
+    "name": "MapPractise",
+    "slug": "map-practise",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
