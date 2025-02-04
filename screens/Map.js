@@ -1,8 +1,13 @@
-// NOTE: The above contains extra complications because of how iOS re-renders map markers.
+// NOTE: 
+
+// This code contains extra complications because of how iOS re-renders map markers.
 // iOS does not immediately re-render markers when their properties change, so the map always lags one long press behind.
 // This is why there is a separate 'marker' state for the current marker and a 'markers' state for all markers.
+// With this solution, the very first long press will not show the current marker, but all subsequent long presses will.
+
 // For Android, you can simply update the marker properties and the marker will re-render immediately.
 // Code for Android is commented out below the iOS code.
+
 
 // IOS & ANDROID COMPATIBLE CODE:
 import { useState } from "react"
