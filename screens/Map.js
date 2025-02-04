@@ -1,31 +1,38 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import * as Location from 'expo-location'
 import { useState, useEffect } from "react";
 
 export default function Map (props) {
 
-    const [marker, setMarker] = useState(null)
+    // array instead of single variable
+    const [markers, setMarkers] = useState([])
 
-    const showMarker = (e) => {
+    const addMarker = (e) => {
         const coords = e.nativeEvent.coordinate
-        setMarker(coords)
+        // append array instead of replacing single variable
+        setMarkers((prevMarkers) => [...prevMarkers, coords])
     }
+
+    // useEffect(() => {
+    //     console.log(markers)
+    // }, [markers])
 
     return(
         <MapView
             style={styles.map}
             region={props.location}
             mapType = {props.mapType}
-            onLongPress={showMarker}
+            onLongPress={addMarker}
             >
-            {marker && 
+            {markers.map((marker, index) => (
                 <Marker 
-                title="Ding"
-                coordinate={{latitude: marker.latitude, longitude: marker.longitude}}
-                />
-            }
+                    key={index} 
+                    title={`Marker ${index+1}`} 
+                    coordinate={marker} 
+                    />
+            ))}
         </MapView>
     )
 
@@ -36,5 +43,4 @@ const styles = StyleSheet.create({
       width: '100%',
       height: '100%'
     }
-  });
-  
+  })

@@ -1,8 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
-import { Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import MapView from 'react-native-maps';
+import { Platform, SafeAreaView, StyleSheet} from 'react-native';
 import Constants from 'expo-constants';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import * as Location from 'expo-location'
 import Map from './screens/Map';
 import MainAppBar from './components/MainAppBar';
@@ -96,13 +94,13 @@ export default function App() {
 
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    /* tämä tekee androidin statusbarin rajattua pois apista */
-    // marginTop: Platform.OS === 'android' ? Constants.statusBarHeight : 0 
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     /* tämä rajaisi androidin statusbarin pois apista */
+//     // marginTop: Platform.OS === 'android' ? Constants.statusBarHeight : 0 
+//   },
+// })

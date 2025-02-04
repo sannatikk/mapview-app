@@ -1,13 +1,11 @@
 import { Appbar } from "react-native-paper"
 import React from "react"
-import { NavigationContainer } from "@react-navigation/native"
-import { createStackNavigator } from "@react-navigation/stack"
 import { getHeaderTitle } from "@react-navigation/elements"
 
 export default function MainAppBar(props) {
 
     const title = getHeaderTitle(props.options, props.route.name)
-    console.log(props.navigation)
+    // console.log(props.navigation)
 
     return (
         <Appbar.Header style={{backgroundColor: props.backgroundColor}}>
