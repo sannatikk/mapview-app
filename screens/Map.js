@@ -19,17 +19,17 @@ export default function Map(props) {
     const [markers, setMarkers] = useState([])
     const [markerCount, setMarkerCount] = useState(0)  // counter for unique titles
 
-    const showMarker = (e) => {
+    const addMarker = (e) => {
         const coords = e.nativeEvent.coordinate;
         const newMarker = {
             id: markerCount,  // unique id for each marker
             coordinate: coords,
             title: `Marker ${markerCount + 1}`,  // title based on the marker count
-        };
+        }
 
         setMarker(coords);  // show the current marker, for iOS
         setMarkers(prevMarkers => [...prevMarkers, newMarker])
-        setMarkerCount(prevCount => prevCount + 1);  // increment the count for next title
+        setMarkerCount(prevCount => prevCount + 1)  // increment the count for next title
     }
 
     return (
@@ -37,7 +37,7 @@ export default function Map(props) {
             style={styles.map}
             region={props.location}
             mapType={props.mapType}
-            onLongPress={showMarker}
+            onLongPress={addMarker}
         >
             {markers.map((marker) => (
                 <Marker
